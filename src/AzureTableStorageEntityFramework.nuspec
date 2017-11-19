@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AzureTableStorageEntityFramework</id>
+    <version>0.2.0.0</version>
+    <title>AzureTableStorageEntityFramework</title>
+    <authors>Pantelis Zisimopoulos</authors>
+    <owners>LobsterInk</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This library is aimed on fastracking Azure Table Storage development</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>Azure Table Storage Entity</tags>
+  </metadata>
+</package>
