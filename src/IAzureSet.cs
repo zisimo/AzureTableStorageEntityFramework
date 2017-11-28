@@ -12,7 +12,7 @@ namespace AzureTableStorageEntityFramework
         ///     Creates a <see cref="CloudTable"/> if it hasn't been created yet on the specified <see cref="CloudTableClient"/>.
         /// </summary>
         /// <param name="tableClient">The <see cref="CloudTableClient"/> to be used.</param>
-        void CreateTableIfNotExists(CloudTableClient tableClient);
+        Task CreateTableIfNotExistsAsync(CloudTableClient tableClient);
 
         /// <summary>
         ///     Executes all batch operations to be performed.

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureTableStorageEntityFramework.Extensions
@@ -13,7 +14,8 @@ namespace AzureTableStorageEntityFramework.Extensions
         /// </summary>
         /// <param name="tableClient">The <see cref="CloudTableClient"/> to be used.</param>
         /// <param name="tableName">The name of the table.</param>
-        public static void CreateTableIfNotExists(this CloudTableClient tableClient, string tableName)
+        /// <returns>A task</returns>
+        public static Task CreateTableIfNotExistsAsync(this CloudTableClient tableClient, string tableName)
         {
             if (tableClient == null)
             {
@@ -26,7 +28,7 @@ namespace AzureTableStorageEntityFramework.Extensions
             }
 
             var table = tableClient.GetTableReference(tableName);
-            table.CreateIfNotExists();
+            return table.CreateIfNotExistsAsync();
         }
     }
 }

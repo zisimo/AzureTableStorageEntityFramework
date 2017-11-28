@@ -46,7 +46,7 @@ namespace AzureTableStorageEntityFramework.Extensions
             {
                 runningQuery.TakeCount = query.TakeCount - items.Count;
 
-                var tableQuerySegment = await table.ExecuteQuerySegmentedAsync(query, resolver, token, cancellationToken);
+                var tableQuerySegment = await table.ExecuteQuerySegmentedAsync(query, resolver, token);
                 token = tableQuerySegment.ContinuationToken;
                 items.AddRange(tableQuerySegment);
                 onProgress?.Invoke(items);
