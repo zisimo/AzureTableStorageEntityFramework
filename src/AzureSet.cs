@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.Linq;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AzureTableStorageEntityFramework.Extensions;
 using AzureTableStorageEntityFramework.Queryable;
 using Microsoft.WindowsAzure.Storage.Table;
-using Microsoft.WindowsAzure.Storage.Table.Protocol;
 
 namespace AzureTableStorageEntityFramework
 {
@@ -18,6 +16,8 @@ namespace AzureTableStorageEntityFramework
     /// <typeparam name="T">The type of objects the <see cref="AzureSet{T}"/> holds.</typeparam>
     public class AzureSet<T> : IAzureSet, IOrderedQueryable<T>, IQueryable<T>, IEnumerable<T> where T : TableEntity, new()
     {
+        private const int TableServiceBatchMaximumOperations = 100;
+
         private IDictionary<T, ChangeAction> _entitiesDictionary;
 
         public AzureSet(AzureContext azureContext)
@@ -81,9 +81,9 @@ namespace AzureTableStorageEntityFramework
         /// <summary>
         ///     See <see cref="IAzureSet.CreateTableIfNotExists"/>.
         /// </summary>
-        public void CreateTableIfNotExists(CloudTableClient tableClient)
+        public Task CreateTableIfNotExistsAsync(CloudTableClient tableClient)
         {
-            tableClient.CreateTableIfNotExists(new T().PartitionKey);
+            return tableClient.CreateTableIfNotExistsAsync(new T().PartitionKey);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace AzureTableStorageEntityFramework
             {
                 AddOperationToBatch(context, _entitiesDictionary.ElementAt(i), batch);
 
-                if (i % TableConstants.TableServiceBatchMaximumOperations == 0)
+                if (i % TableServiceBatchMaximumOperations == 0)
                 {
                     tasks.Add(ExecuteBatchAsync(batch, table));
                     batch = new TableBatchOperation();

@@ -60,7 +60,7 @@ namespace AzureTableStorageEntityFramework
             }
 
             var newSet = new AzureSet<T>(this);
-            newSet.CreateTableIfNotExists(TableClient);
+            newSet.CreateTableIfNotExistsAsync(TableClient);
             _setsDictionary[typeof(T)] = newSet;
             return newSet;
         }
