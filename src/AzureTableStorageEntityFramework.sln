@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableStorageEntityFramework", "AzureTableStorageEntityFramework.csproj", "{913212AD-9739-4C5E-977D-D6932D5BF475}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTableStorageEntityFramework", "AzureTableStorageEntityFramework.csproj", "{913212AD-9739-4C5E-977D-D6932D5BF475}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

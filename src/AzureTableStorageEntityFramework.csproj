@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net461;netcoreapp2.0</TargetFrameworks>
     <PackageId>AzureTableStorageEntityFramework</PackageId>
     <PackageVersion>0.2.1</PackageVersion>
     <Authors>Pantelis Zisimopoulos</Authors>
     <Description>This library is aimed on fastracking Azure Table Storage development.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Moving to .net standard 2.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Moving to .net standard 2.0 and supporting net4.61 and netcoreapp2.0.</PackageReleaseNotes>
     <Copyright>Copyright 2017</Copyright>
     <PackageTags>Azure Table Storage Entity Framework</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.2.1.0</AssemblyVersion>
-    <FileVersion>0.2.1.0</FileVersion>
+    <AssemblyVersion>0.2.2.0</AssemblyVersion>
+    <FileVersion>0.2.2.0</FileVersion>
     <PackageProjectUrl>https://github.com/zisimo/AzureTableStorageEntityFramework</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <Version>0.2.1.0</Version>
+    <Version>0.2.2.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="WindowsAzure.Storage" Version="8.5.0" />
